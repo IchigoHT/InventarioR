@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProducts));
             panel1 = new Panel();
             label1 = new Label();
+            btnminimizar = new PictureBox();
+            btncerrar = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnminimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btncerrar).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -53,17 +58,43 @@
             label1.TabIndex = 9;
             label1.Text = "Productos";
             // 
+            // btnminimizar
+            // 
+            btnminimizar.Image = (Image)resources.GetObject("btnminimizar.Image");
+            btnminimizar.Location = new Point(731, 12);
+            btnminimizar.Name = "btnminimizar";
+            btnminimizar.Size = new Size(22, 20);
+            btnminimizar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnminimizar.TabIndex = 25;
+            btnminimizar.TabStop = false;
+            btnminimizar.Click += btnminimizar_Click;
+            // 
+            // btncerrar
+            // 
+            btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
+            btncerrar.Location = new Point(768, 12);
+            btncerrar.Name = "btncerrar";
+            btncerrar.Size = new Size(20, 20);
+            btncerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            btncerrar.TabIndex = 24;
+            btncerrar.TabStop = false;
+            btncerrar.Click += btncerrar_Click;
+            // 
             // ViewProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = InventarioR.Properties.Resources.bground;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnminimizar);
+            Controls.Add(btncerrar);
             Controls.Add(panel1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ViewProducts";
             Text = "ViewProducts";
+            ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btncerrar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -71,5 +102,7 @@
         #endregion
         private Panel panel1;
         private Label label1;
+        private PictureBox btnminimizar;
+        private PictureBox btncerrar;
     }
 }
