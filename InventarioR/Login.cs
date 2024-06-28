@@ -38,8 +38,8 @@ namespace InventarioR
             if (usuarioIngresado == usuarioCorrecto && contraseñaIngresada == contraseñaCorrecta)
             {
 
-                ViewProducts viewProductos = new ViewProducts();
-                viewProductos.Show();
+                MenuR Menu = new MenuR();
+                Menu.Show();
                 this.Hide();
             }
             else

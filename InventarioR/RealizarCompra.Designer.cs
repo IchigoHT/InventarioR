@@ -1,6 +1,6 @@
 ﻿namespace TRABAJOT3
 {
-    partial class Form1
+    partial class RealizarCompra
     {
         /// <summary>
         ///  Required designer variable.
@@ -324,7 +324,7 @@
             label10.TabIndex = 12;
             label10.Text = "FECHA ACTUAL:";
             // 
-            // Form1
+            // RealizarCompra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -339,7 +339,7 @@
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Form1";
+            Name = "RealizarCompra";
             Text = "COMPRAR";
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);

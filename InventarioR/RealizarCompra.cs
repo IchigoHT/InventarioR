@@ -2,9 +2,9 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace TRABAJOT3
 {
-    public partial class Form1 : Form
+    public partial class RealizarCompra : Form
     {
-        public Form1()
+        public RealizarCompra()
         {
             InitializeComponent();
         }
