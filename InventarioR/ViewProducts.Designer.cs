@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             dgvProductos = new DataGridView();
             ColumnProducto = new DataGridViewTextBoxColumn();
             ColumnProveedor = new DataGridViewTextBoxColumn();
@@ -37,25 +36,25 @@
             ColumnFecha = new DataGridViewTextBoxColumn();
             ColumnCosto = new DataGridViewTextBoxColumn();
             ColumnDescripcion = new DataGridViewTextBoxColumn();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            Eliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             label2 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            txtmarca = new TextBox();
+            txtproveedor = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox6 = new TextBox();
+            txtstock = new TextBox();
             label7 = new Label();
-            textBox7 = new TextBox();
+            txtcostoU = new TextBox();
             label8 = new Label();
-            textBox8 = new TextBox();
+            txtproducto = new TextBox();
             label9 = new Label();
             groupBox1 = new GroupBox();
-            textBox2 = new TextBox();
-            contextMenuStrip1 = new ContextMenuStrip(components);
+            dateTimeFecha = new DateTimePicker();
+            txtdescripcion = new TextBox();
+            lblFecha = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -69,6 +68,7 @@
             dgvProductos.Name = "dgvProductos";
             dgvProductos.Size = new Size(744, 254);
             dgvProductos.TabIndex = 20;
+            dgvProductos.CellContentClick += dgvProductos_CellContentClick;
             // 
             // ColumnProducto
             // 
@@ -105,51 +105,42 @@
             ColumnDescripcion.HeaderText = "Descripcion";
             ColumnDescripcion.Name = "ColumnDescripcion";
             // 
-            // textBox1
+            // Eliminar
             // 
-            textBox1.BackColor = Color.Ivory;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Calibri", 9.75F);
-            textBox1.Location = new Point(460, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(145, 23);
-            textBox1.TabIndex = 21;
+            Eliminar.BackColor = Color.FromArgb(167, 255, 132);
+            Eliminar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Eliminar.ForeColor = Color.Black;
+            Eliminar.Location = new Point(642, 133);
+            Eliminar.Name = "Eliminar";
+            Eliminar.Size = new Size(85, 33);
+            Eliminar.TabIndex = 20;
+            Eliminar.Text = "Eliminar";
+            Eliminar.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnModificar
             // 
-            button1.BackColor = Color.FromArgb(167, 255, 132);
-            button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(726, 130);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 33);
-            button1.TabIndex = 20;
-            button1.Text = "Eliminar";
-            button1.UseVisualStyleBackColor = false;
+            btnModificar.BackColor = Color.FromArgb(167, 255, 132);
+            btnModificar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnModificar.ForeColor = Color.Black;
+            btnModificar.Location = new Point(642, 86);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(85, 33);
+            btnModificar.TabIndex = 19;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAgregar
             // 
-            button2.BackColor = Color.FromArgb(167, 255, 132);
-            button2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(726, 83);
-            button2.Name = "button2";
-            button2.Size = new Size(85, 33);
-            button2.TabIndex = 19;
-            button2.Text = "Modificar";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(167, 255, 132);
-            button3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(726, 34);
-            button3.Name = "button3";
-            button3.Size = new Size(85, 33);
-            button3.TabIndex = 18;
-            button3.Text = "Agregar";
-            button3.UseVisualStyleBackColor = false;
+            btnAgregar.BackColor = Color.FromArgb(167, 255, 132);
+            btnAgregar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = Color.Black;
+            btnAgregar.Location = new Point(642, 37);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(85, 33);
+            btnAgregar.TabIndex = 18;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // label2
             // 
@@ -162,25 +153,25 @@
             label2.TabIndex = 17;
             label2.Text = "Marca:";
             // 
-            // textBox3
+            // txtmarca
             // 
-            textBox3.BackColor = Color.Ivory;
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Font = new Font("Calibri", 9.75F);
-            textBox3.Location = new Point(83, 151);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(109, 23);
-            textBox3.TabIndex = 14;
+            txtmarca.BackColor = Color.Ivory;
+            txtmarca.BorderStyle = BorderStyle.FixedSingle;
+            txtmarca.Font = new Font("Calibri", 9.75F);
+            txtmarca.Location = new Point(83, 151);
+            txtmarca.Name = "txtmarca";
+            txtmarca.Size = new Size(109, 23);
+            txtmarca.TabIndex = 14;
             // 
-            // textBox4
+            // txtproveedor
             // 
-            textBox4.BackColor = Color.Ivory;
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Font = new Font("Calibri", 9.75F);
-            textBox4.Location = new Point(101, 83);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(144, 23);
-            textBox4.TabIndex = 13;
+            txtproveedor.BackColor = Color.Ivory;
+            txtproveedor.BorderStyle = BorderStyle.FixedSingle;
+            txtproveedor.Font = new Font("Calibri", 9.75F);
+            txtproveedor.Location = new Point(101, 83);
+            txtproveedor.Name = "txtproveedor";
+            txtproveedor.Size = new Size(144, 23);
+            txtproveedor.TabIndex = 13;
             // 
             // label4
             // 
@@ -198,7 +189,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Century Schoolbook", 12F);
-            label5.Location = new Point(396, 44);
+            label5.Location = new Point(293, 47);
             label5.Name = "label5";
             label5.Size = new Size(58, 20);
             label5.TabIndex = 9;
@@ -209,21 +200,21 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Century Schoolbook", 12F);
-            label6.Location = new Point(396, 114);
+            label6.Location = new Point(293, 117);
             label6.Name = "label6";
             label6.Size = new Size(98, 20);
             label6.TabIndex = 7;
             label6.Text = "Descripcion:";
             // 
-            // textBox6
+            // txtstock
             // 
-            textBox6.BackColor = Color.Ivory;
-            textBox6.BorderStyle = BorderStyle.FixedSingle;
-            textBox6.Font = new Font("Calibri", 9.75F);
-            textBox6.Location = new Point(73, 116);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(53, 23);
-            textBox6.TabIndex = 6;
+            txtstock.BackColor = Color.Ivory;
+            txtstock.BorderStyle = BorderStyle.FixedSingle;
+            txtstock.Font = new Font("Calibri", 9.75F);
+            txtstock.Location = new Point(73, 116);
+            txtstock.Name = "txtstock";
+            txtstock.Size = new Size(53, 23);
+            txtstock.TabIndex = 6;
             // 
             // label7
             // 
@@ -236,36 +227,36 @@
             label7.TabIndex = 5;
             label7.Text = "Stock:";
             // 
-            // textBox7
+            // txtcostoU
             // 
-            textBox7.BackColor = Color.Ivory;
-            textBox7.BorderStyle = BorderStyle.FixedSingle;
-            textBox7.Font = new Font("Calibri", 9.75F);
-            textBox7.Location = new Point(523, 83);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(60, 23);
-            textBox7.TabIndex = 4;
+            txtcostoU.BackColor = Color.Ivory;
+            txtcostoU.BorderStyle = BorderStyle.FixedSingle;
+            txtcostoU.Font = new Font("Calibri", 9.75F);
+            txtcostoU.Location = new Point(420, 86);
+            txtcostoU.Name = "txtcostoU";
+            txtcostoU.Size = new Size(60, 23);
+            txtcostoU.TabIndex = 4;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Century Schoolbook", 12F);
-            label8.Location = new Point(396, 83);
+            label8.Location = new Point(293, 86);
             label8.Name = "label8";
             label8.Size = new Size(121, 20);
             label8.TabIndex = 3;
             label8.Text = "Costo Unitario:";
             // 
-            // textBox8
+            // txtproducto
             // 
-            textBox8.BackColor = Color.Ivory;
-            textBox8.BorderStyle = BorderStyle.FixedSingle;
-            textBox8.Font = new Font("Calibri", 9.75F);
-            textBox8.Location = new Point(92, 46);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(177, 23);
-            textBox8.TabIndex = 2;
+            txtproducto.BackColor = Color.Ivory;
+            txtproducto.BorderStyle = BorderStyle.FixedSingle;
+            txtproducto.Font = new Font("Calibri", 9.75F);
+            txtproducto.Location = new Point(92, 46);
+            txtproducto.Name = "txtproducto";
+            txtproducto.Size = new Size(177, 23);
+            txtproducto.TabIndex = 2;
             // 
             // label9
             // 
@@ -281,77 +272,95 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(dateTimeFecha);
+            groupBox1.Controls.Add(txtdescripcion);
+            groupBox1.Controls.Add(Eliminar);
+            groupBox1.Controls.Add(btnModificar);
+            groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(txtmarca);
+            groupBox1.Controls.Add(txtproveedor);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(txtstock);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox7);
+            groupBox1.Controls.Add(txtcostoU);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox8);
+            groupBox1.Controls.Add(txtproducto);
             groupBox1.Controls.Add(label9);
             groupBox1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(22, 35);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(820, 210);
+            groupBox1.Size = new Size(744, 210);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Productos";
             // 
-            // textBox2
+            // dateTimeFecha
             // 
-            textBox2.BackColor = Color.Ivory;
-            textBox2.Location = new Point(396, 140);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(309, 47);
-            textBox2.TabIndex = 22;
+            dateTimeFecha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimeFecha.Location = new Point(357, 46);
+            dateTimeFecha.Name = "dateTimeFecha";
+            dateTimeFecha.Size = new Size(169, 26);
+            dateTimeFecha.TabIndex = 23;
             // 
-            // contextMenuStrip1
+            // txtdescripcion
             // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            txtdescripcion.BackColor = Color.Ivory;
+            txtdescripcion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtdescripcion.Location = new Point(293, 143);
+            txtdescripcion.Name = "txtdescripcion";
+            txtdescripcion.Size = new Size(309, 26);
+            txtdescripcion.TabIndex = 22;
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.BackColor = Color.Transparent;
+            lblFecha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFecha.Location = new Point(30, 9);
+            lblFecha.Margin = new Padding(5, 0, 5, 0);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(69, 20);
+            lblFecha.TabIndex = 21;
+            lblFecha.Text = "lblFecha";
             // 
             // ViewProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = InventarioR.Properties.Resources.bground;
-            ClientSize = new Size(849, 532);
+            ClientSize = new Size(780, 532);
             Controls.Add(dgvProductos);
+            Controls.Add(lblFecha);
             Controls.Add(groupBox1);
             Name = "ViewProducts";
             Text = "ViewProducts";
+            Load += ViewProducts_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private DataGridView dgvProductos;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button Eliminar;
+        private Button btnModificar;
+        private Button btnAgregar;
         private Label label2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox txtmarca;
+        private TextBox txtproveedor;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox txtstock;
         private Label label7;
-        private TextBox textBox7;
+        private TextBox txtcostoU;
         private Label label8;
-        private TextBox textBox8;
+        private TextBox txtproducto;
         private Label label9;
         private GroupBox groupBox1;
         private DataGridViewTextBoxColumn ColumnProducto;
@@ -361,7 +370,8 @@
         private DataGridViewTextBoxColumn ColumnFecha;
         private DataGridViewTextBoxColumn ColumnCosto;
         private DataGridViewTextBoxColumn ColumnDescripcion;
-        private TextBox textBox2;
-        private ContextMenuStrip contextMenuStrip1;
+        private TextBox txtdescripcion;
+        private Label lblFecha;
+        private DateTimePicker dateTimeFecha;
     }
 }
