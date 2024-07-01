@@ -37,6 +37,26 @@
             ColumnCorreo = new DataGridViewTextBoxColumn();
             ColumnDirección = new DataGridViewTextBoxColumn();
             ColumnSitioWeb = new DataGridViewTextBoxColumn();
+            groupBox1 = new GroupBox();
+            textBox1 = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            label2 = new Label();
+            textBox2 = new TextBox();
+            label3 = new Label();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            textBox5 = new TextBox();
+            label6 = new Label();
+            textBox6 = new TextBox();
+            label7 = new Label();
+            textBox7 = new TextBox();
+            label8 = new Label();
+            textBox8 = new TextBox();
+            label9 = new Label();
             lblEmpresa = new Label();
             txtEmpresa = new TextBox();
             lblDNI = new Label();
@@ -56,7 +76,6 @@
             btnModificar = new Button();
             btnEliminar = new Button();
             txtProductos = new TextBox();
-            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -111,6 +130,240 @@
             // 
             ColumnSitioWeb.HeaderText = "Sitio Web";
             ColumnSitioWeb.Name = "ColumnSitioWeb";
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.Transparent;
+            groupBox1.Controls.Add(txtProductos);
+            groupBox1.Controls.Add(btnEliminar);
+            groupBox1.Controls.Add(btnModificar);
+            groupBox1.Controls.Add(btnAgregar);
+            groupBox1.Controls.Add(lblDirección);
+            groupBox1.Controls.Add(txtSitioWeb);
+            groupBox1.Controls.Add(lblSitioWeb);
+            groupBox1.Controls.Add(txtDirección);
+            groupBox1.Controls.Add(txtNombreContacto);
+            groupBox1.Controls.Add(lblContacto);
+            groupBox1.Controls.Add(lblProductos);
+            groupBox1.Controls.Add(txtCorreo);
+            groupBox1.Controls.Add(lblCorreo);
+            groupBox1.Controls.Add(txtCelular);
+            groupBox1.Controls.Add(lblCelular);
+            groupBox1.Controls.Add(txtDNI);
+            groupBox1.Controls.Add(lblDNI);
+            groupBox1.Controls.Add(txtEmpresa);
+            groupBox1.Controls.Add(lblEmpresa);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(23, 21);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(898, 182);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Proveedores";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.Ivory;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Calibri", 9.75F);
+            textBox1.Location = new Point(657, 43);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(134, 23);
+            textBox1.TabIndex = 21;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(167, 255, 132);
+            button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(807, 132);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 33);
+            button1.TabIndex = 20;
+            button1.Text = "Eliminar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(167, 255, 132);
+            button2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(807, 85);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 33);
+            button2.TabIndex = 19;
+            button2.Text = "Modificar";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(167, 255, 132);
+            button3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(807, 36);
+            button3.Name = "button3";
+            button3.Size = new Size(85, 33);
+            button3.TabIndex = 18;
+            button3.Text = "Agregar";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Century Schoolbook", 12F);
+            label2.Location = new Point(16, 140);
+            label2.Name = "label2";
+            label2.Size = new Size(82, 20);
+            label2.TabIndex = 17;
+            label2.Text = "Dirección:";
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.Ivory;
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            textBox2.Font = new Font("Calibri", 9.75F);
+            textBox2.Location = new Point(538, 142);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(253, 23);
+            textBox2.TabIndex = 16;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Century Schoolbook", 12F);
+            label3.Location = new Point(448, 145);
+            label3.Name = "label3";
+            label3.Size = new Size(84, 20);
+            label3.TabIndex = 15;
+            label3.Text = "Sitio Web:";
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = Color.Ivory;
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.Font = new Font("Calibri", 9.75F);
+            textBox3.Location = new Point(104, 140);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(301, 23);
+            textBox3.TabIndex = 14;
+            // 
+            // textBox4
+            // 
+            textBox4.BackColor = Color.Ivory;
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            textBox4.Font = new Font("Calibri", 9.75F);
+            textBox4.Location = new Point(171, 80);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(298, 23);
+            textBox4.TabIndex = 13;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Century Schoolbook", 12F);
+            label4.Location = new Point(16, 78);
+            label4.Name = "label4";
+            label4.Size = new Size(158, 20);
+            label4.TabIndex = 12;
+            label4.Text = "Nombre de contacto:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Century Schoolbook", 12F);
+            label5.Location = new Point(504, 44);
+            label5.Name = "label5";
+            label5.Size = new Size(154, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Productos ofrecidos:";
+            // 
+            // textBox5
+            // 
+            textBox5.BackColor = Color.Ivory;
+            textBox5.BorderStyle = BorderStyle.FixedSingle;
+            textBox5.Font = new Font("Calibri", 9.75F);
+            textBox5.Location = new Point(573, 113);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(218, 23);
+            textBox5.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Century Schoolbook", 12F);
+            label6.Location = new Point(504, 114);
+            label6.Name = "label6";
+            label6.Size = new Size(63, 20);
+            label6.TabIndex = 7;
+            label6.Text = "Correo:";
+            // 
+            // textBox6
+            // 
+            textBox6.BackColor = Color.Ivory;
+            textBox6.BorderStyle = BorderStyle.FixedSingle;
+            textBox6.Font = new Font("Calibri", 9.75F);
+            textBox6.Location = new Point(90, 111);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(123, 23);
+            textBox6.TabIndex = 6;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Century Schoolbook", 12F);
+            label7.Location = new Point(15, 111);
+            label7.Name = "label7";
+            label7.Size = new Size(69, 20);
+            label7.TabIndex = 5;
+            label7.Text = "Celular:";
+            // 
+            // textBox7
+            // 
+            textBox7.BackColor = Color.Ivory;
+            textBox7.BorderStyle = BorderStyle.FixedSingle;
+            textBox7.Font = new Font("Calibri", 9.75F);
+            textBox7.Location = new Point(609, 80);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(182, 23);
+            textBox7.TabIndex = 4;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Century Schoolbook", 12F);
+            label8.Location = new Point(558, 80);
+            label8.Name = "label8";
+            label8.Size = new Size(45, 20);
+            label8.TabIndex = 3;
+            label8.Text = "DNI:";
+            // 
+            // textBox8
+            // 
+            textBox8.BackColor = Color.Ivory;
+            textBox8.BorderStyle = BorderStyle.FixedSingle;
+            textBox8.Font = new Font("Calibri", 9.75F);
+            textBox8.Location = new Point(190, 46);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(279, 23);
+            textBox8.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Century Schoolbook", 12F);
+            label9.Location = new Point(16, 46);
+            label9.Name = "label9";
+            label9.Size = new Size(177, 20);
+            label9.TabIndex = 1;
+            label9.Text = "Nombre de la empresa:";
             // 
             // lblEmpresa
             // 
@@ -325,36 +578,6 @@
             txtProductos.TabIndex = 21;
             txtProductos.TextChanged += txtProductos_TextChanged;
             // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(txtProductos);
-            groupBox1.Controls.Add(btnEliminar);
-            groupBox1.Controls.Add(btnModificar);
-            groupBox1.Controls.Add(btnAgregar);
-            groupBox1.Controls.Add(lblDirección);
-            groupBox1.Controls.Add(txtSitioWeb);
-            groupBox1.Controls.Add(lblSitioWeb);
-            groupBox1.Controls.Add(txtDirección);
-            groupBox1.Controls.Add(txtNombreContacto);
-            groupBox1.Controls.Add(lblContacto);
-            groupBox1.Controls.Add(lblProductos);
-            groupBox1.Controls.Add(txtCorreo);
-            groupBox1.Controls.Add(lblCorreo);
-            groupBox1.Controls.Add(txtCelular);
-            groupBox1.Controls.Add(lblCelular);
-            groupBox1.Controls.Add(txtDNI);
-            groupBox1.Controls.Add(lblDNI);
-            groupBox1.Controls.Add(txtEmpresa);
-            groupBox1.Controls.Add(lblEmpresa);
-            groupBox1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(23, 21);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(898, 182);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Proveedores";
-            // 
             // Proveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,25 +604,44 @@
         private DataGridViewTextBoxColumn ColumnCorreo;
         private DataGridViewTextBoxColumn ColumnDirección;
         private DataGridViewTextBoxColumn ColumnSitioWeb;
-        private Label lblEmpresa;
-        private TextBox txtEmpresa;
-        private Label lblDNI;
-        private TextBox txtDNI;
-        private Label lblCelular;
-        private TextBox txtCelular;
-        private Label lblCorreo;
-        private TextBox txtCorreo;
-        private Label lblProductos;
-        private Label lblContacto;
-        private TextBox txtNombreContacto;
-        private TextBox txtDirección;
-        private Label lblSitioWeb;
-        private TextBox txtSitioWeb;
-        private Label lblDirección;
-        private Button btnAgregar;
-        private Button btnModificar;
-        private Button btnEliminar;
-        private TextBox txtProductos;
         private GroupBox groupBox1;
+        private TextBox txtProductos;
+        private Button btnEliminar;
+        private Button btnModificar;
+        private Button btnAgregar;
+        private Label lblDirección;
+        private TextBox txtSitioWeb;
+        private Label lblSitioWeb;
+        private TextBox txtDirección;
+        private TextBox txtNombreContacto;
+        private Label lblContacto;
+        private Label lblProductos;
+        private TextBox txtCorreo;
+        private Label lblCorreo;
+        private TextBox txtCelular;
+        private Label lblCelular;
+        private TextBox txtDNI;
+        private Label lblDNI;
+        private TextBox txtEmpresa;
+        private Label lblEmpresa;
+        private TextBox textBox1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Label label2;
+        private TextBox textBox2;
+        private Label label3;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private Label label4;
+        private Label label5;
+        private TextBox textBox5;
+        private Label label6;
+        private TextBox textBox6;
+        private Label label7;
+        private TextBox textBox7;
+        private Label label8;
+        private TextBox textBox8;
+        private Label label9;
     }
 }
