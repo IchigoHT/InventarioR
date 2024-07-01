@@ -1,8 +1,8 @@
 namespace Proveedores_Oficial
 {
-    public partial class Form1 : Form
+    public partial class Proveedores : Form
     {
-        public Form1()
+        public Proveedores()
         {
             InitializeComponent();
             DgvProveedores.AllowUserToAddRows = false;  // Eliminar la fila en blanco predeterminada
