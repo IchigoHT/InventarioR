@@ -37,6 +37,7 @@
             label3 = new Label();
             btnminimizar = new PictureBox();
             btncerrar = new PictureBox();
+            linkMcontraseña = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)btnminimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btncerrar).BeginInit();
             SuspendLayout();
@@ -141,12 +142,25 @@
             btncerrar.TabStop = false;
             btncerrar.Click += btncerrar_Click;
             // 
+            // linkMcontraseña
+            // 
+            linkMcontraseña.AutoSize = true;
+            linkMcontraseña.LinkColor = SystemColors.AppWorkspace;
+            linkMcontraseña.Location = new Point(37, 373);
+            linkMcontraseña.Name = "linkMcontraseña";
+            linkMcontraseña.Size = new Size(111, 15);
+            linkMcontraseña.TabIndex = 24;
+            linkMcontraseña.TabStop = true;
+            linkMcontraseña.Text = "Mostrar Contraseña";
+            linkMcontraseña.LinkClicked += linkMcontraseña_LinkClicked;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             ClientSize = new Size(339, 568);
+            Controls.Add(linkMcontraseña);
             Controls.Add(btnminimizar);
             Controls.Add(btncerrar);
             Controls.Add(btnlogin);
@@ -176,5 +190,6 @@
         private Label label3;
         private PictureBox btnminimizar;
         private PictureBox btncerrar;
+        private LinkLabel linkMcontraseña;
     }
 }

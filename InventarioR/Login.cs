@@ -102,5 +102,21 @@ namespace InventarioR
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void linkMcontraseña_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Alterna la visibilidad de la contraseña
+            txtpass.UseSystemPasswordChar = !txtpass.UseSystemPasswordChar;
+
+            // Cambia el texto del LinkLabel según la visibilidad
+            if (txtpass.UseSystemPasswordChar)
+            {
+                linkMcontraseña.Text = "Mostrar Contraseña";
+            }
+            else
+            {
+                linkMcontraseña.Text = "Ocultar Contraseña";
+            }
+        }
     }
 }
