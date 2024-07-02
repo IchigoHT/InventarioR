@@ -33,7 +33,6 @@
             ColumnProveedor = new DataGridViewTextBoxColumn();
             ColumnMarca = new DataGridViewTextBoxColumn();
             ColumnStock = new DataGridViewTextBoxColumn();
-            ColumnFecha = new DataGridViewTextBoxColumn();
             ColumnCosto = new DataGridViewTextBoxColumn();
             ColumnDescripcion = new DataGridViewTextBoxColumn();
             Eliminar = new Button();
@@ -63,10 +62,10 @@
             // 
             dgvProductos.BackgroundColor = Color.Silver;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ColumnProducto, ColumnProveedor, ColumnMarca, ColumnStock, ColumnFecha, ColumnCosto, ColumnDescripcion });
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ColumnProducto, ColumnProveedor, ColumnMarca, ColumnStock, ColumnCosto, ColumnDescripcion });
             dgvProductos.Location = new Point(22, 266);
             dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(744, 254);
+            dgvProductos.Size = new Size(645, 254);
             dgvProductos.TabIndex = 20;
             dgvProductos.CellContentClick += dgvProductos_CellContentClick;
             // 
@@ -90,11 +89,6 @@
             ColumnStock.HeaderText = "Stock";
             ColumnStock.Name = "ColumnStock";
             // 
-            // ColumnFecha
-            // 
-            ColumnFecha.HeaderText = "Fecha";
-            ColumnFecha.Name = "ColumnFecha";
-            // 
             // ColumnCosto
             // 
             ColumnCosto.HeaderText = "Costo";
@@ -116,6 +110,7 @@
             Eliminar.TabIndex = 20;
             Eliminar.Text = "Eliminar";
             Eliminar.UseVisualStyleBackColor = false;
+            Eliminar.Click += Eliminar_Click;
             // 
             // btnModificar
             // 
@@ -128,6 +123,7 @@
             btnModificar.TabIndex = 19;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -302,7 +298,7 @@
             dateTimeFecha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimeFecha.Location = new Point(357, 46);
             dateTimeFecha.Name = "dateTimeFecha";
-            dateTimeFecha.Size = new Size(169, 26);
+            dateTimeFecha.Size = new Size(193, 26);
             dateTimeFecha.TabIndex = 23;
             // 
             // txtdescripcion
@@ -363,15 +359,14 @@
         private TextBox txtproducto;
         private Label label9;
         private GroupBox groupBox1;
+        private TextBox txtdescripcion;
+        private Label lblFecha;
+        private DateTimePicker dateTimeFecha;
         private DataGridViewTextBoxColumn ColumnProducto;
         private DataGridViewTextBoxColumn ColumnProveedor;
         private DataGridViewTextBoxColumn ColumnMarca;
         private DataGridViewTextBoxColumn ColumnStock;
-        private DataGridViewTextBoxColumn ColumnFecha;
         private DataGridViewTextBoxColumn ColumnCosto;
         private DataGridViewTextBoxColumn ColumnDescripcion;
-        private TextBox txtdescripcion;
-        private Label lblFecha;
-        private DateTimePicker dateTimeFecha;
     }
 }
