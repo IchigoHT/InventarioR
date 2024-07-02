@@ -305,7 +305,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = InventarioR.Properties.Resources.bground;
-            ClientSize = new Size(780, 491);
+            ClientSize = new Size(771, 491);
             Controls.Add(dgvProductos);
             Controls.Add(lblFecha);
             Controls.Add(groupBox1);

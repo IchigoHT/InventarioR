@@ -57,7 +57,6 @@ namespace Inventario
                 return;
             }
 
-
             dgvProductos.Rows.Add(producto, proveedor, stock, marca, costoU, descripcion);
 
             txtproducto.Text = "";
@@ -162,6 +161,7 @@ namespace Inventario
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
+            //Proximamente
         }
     }
 }
