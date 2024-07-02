@@ -24,7 +24,7 @@ namespace ComplementodeVentas
             lblPrecio.Text = (0).ToString("C");
         }
 
-      
+
 
         private void cboProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -54,7 +54,7 @@ namespace ComplementodeVentas
                 MessageBox.Show("Debe ingresar una cantidad..,!!!");
             else if (cboPago.SelectedIndex == -1)
                 MessageBox.Show("Debe seleccionar un tipo de pago...!!");
-           
+
             else
             {
                 //capturando datos
@@ -97,10 +97,19 @@ namespace ComplementodeVentas
             cboProductos.Focus();
         }
 
-     
-        
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lista in lvVenta.SelectedItems)
+            {
+                lista.Remove();
+            }
+        }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            lvVenta.Items.Clear();
         }
     }
+}
 
 
