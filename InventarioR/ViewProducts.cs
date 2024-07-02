@@ -29,35 +29,24 @@ namespace Inventario
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtproducto.Text) ||
-         string.IsNullOrWhiteSpace(txtproveedor.Text) ||
-        string.IsNullOrWhiteSpace(txtstock.Text) ||
-        string.IsNullOrWhiteSpace(txtmarca.Text) ||
-        string.IsNullOrWhiteSpace(dateTimeFecha.Text) ||
-        string.IsNullOrWhiteSpace(txtcostoU.Text) ||
-        string.IsNullOrWhiteSpace(txtdescripcion.Text))
-            {
-                MessageBox.Show("Rellenar todos los campos");
-                return;
-            }
+            string producto, proveedor, stock, marca, costoU, descripcion;
 
-            if (!int.TryParse(txtstock.Text, out int stock))
-            {
-                MessageBox.Show("El campo 'Stock' debe ser un número entero.");
-                return;
-            }
+            producto = txtproducto.Text;
+            proveedor = txtproveedor.Text;
+            stock = txtstock.Text;
+            marca = txtmarca.Text;
+            costoU = txtcostoU.Text;
+            descripcion = txtdescripcion.Text;
 
-            if (!decimal.TryParse(txtcostoU.Text, out decimal costoU))
-            {
-                MessageBox.Show("El campo 'Costo Unitario' debe ser un decimal.");
-                return;
-            }
+            dgvProductos.Rows.Add(producto, proveedor, stock, marca, costoU, descripcion);
 
-            //DateTime fechaActual = DateTime.Now;
+            txtproducto.Text = "";
+            txtproveedor.Text = "";
+            txtmarca.Text = "";
+            txtstock.Text = "";
+            txtcostoU.Text = "";
+            txtdescripcion.Text = "";
 
-            dgvProductos.Rows.Add(txtproducto.Text, txtproveedor.Text, txtmarca.Text, stock, dateTimeFecha.Text, costoU, txtdescripcion.Text);
-
-            limpiarDatos();
         }
 
         void limpiarDatos()
@@ -66,7 +55,6 @@ namespace Inventario
             txtproveedor.Text = "";
             txtmarca.Text = "";
             txtstock.Text = "";
-            dateTimeFecha.Text = "";
             txtcostoU.Text = "";
             txtdescripcion.Text = "";
 
@@ -80,6 +68,39 @@ namespace Inventario
         private void ViewProducts_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Today.Date.ToString("d");
+        }
+
+        private void dgvProductos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvProductos.Rows.Count)
+            {
+                DataGridViewRow filaseleccionada = dgvProductos.Rows[e.RowIndex];
+
+                txtproducto.Text = filaseleccionada.Cells[0].Value?.ToString();
+                txtproveedor.Text = filaseleccionada.Cells[1].Value?.ToString();
+                txtmarca.Text = filaseleccionada.Cells[2].Value?.ToString();
+                txtstock.Text = filaseleccionada.Cells[3].Value?.ToString();
+                txtcostoU.Text = filaseleccionada.Cells[4].Value?.ToString();
+                txtdescripcion.Text = filaseleccionada.Cells[5].Value?.ToString();
+
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaseleccionada = dgvProductos.SelectedRows[0];
+
+                filaseleccionada.Cells[0].Value = txtproducto.Text;
+                filaseleccionada.Cells[1].Value = txtproveedor.Text;
+                filaseleccionada.Cells[2].Value = txtmarca.Text;
+                filaseleccionada.Cells[3].Value = txtstock.Text;
+                filaseleccionada.Cells[4].Value = txtcostoU.Text;
+                filaseleccionada.Cells[5].Value = txtdescripcion.Text;
+
+                dgvProductos.Refresh();
+            }
         }
     }
 }

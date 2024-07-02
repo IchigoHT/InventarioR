@@ -33,7 +33,6 @@
             ColumnProveedor = new DataGridViewTextBoxColumn();
             ColumnMarca = new DataGridViewTextBoxColumn();
             ColumnStock = new DataGridViewTextBoxColumn();
-            ColumnFecha = new DataGridViewTextBoxColumn();
             ColumnCosto = new DataGridViewTextBoxColumn();
             ColumnDescripcion = new DataGridViewTextBoxColumn();
             Eliminar = new Button();
@@ -43,7 +42,6 @@
             txtmarca = new TextBox();
             txtproveedor = new TextBox();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             txtstock = new TextBox();
             label7 = new Label();
@@ -52,7 +50,6 @@
             txtproducto = new TextBox();
             label9 = new Label();
             groupBox1 = new GroupBox();
-            dateTimeFecha = new DateTimePicker();
             txtdescripcion = new TextBox();
             lblFecha = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
@@ -63,12 +60,13 @@
             // 
             dgvProductos.BackgroundColor = Color.Silver;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ColumnProducto, ColumnProveedor, ColumnMarca, ColumnStock, ColumnFecha, ColumnCosto, ColumnDescripcion });
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ColumnProducto, ColumnProveedor, ColumnMarca, ColumnStock, ColumnCosto, ColumnDescripcion });
             dgvProductos.Location = new Point(22, 266);
             dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(744, 254);
+            dgvProductos.Size = new Size(644, 254);
             dgvProductos.TabIndex = 20;
             dgvProductos.CellContentClick += dgvProductos_CellContentClick;
+            dgvProductos.CellMouseClick += dgvProductos_CellMouseClick;
             // 
             // ColumnProducto
             // 
@@ -89,11 +87,6 @@
             // 
             ColumnStock.HeaderText = "Stock";
             ColumnStock.Name = "ColumnStock";
-            // 
-            // ColumnFecha
-            // 
-            ColumnFecha.HeaderText = "Fecha";
-            ColumnFecha.Name = "ColumnFecha";
             // 
             // ColumnCosto
             // 
@@ -128,6 +121,7 @@
             btnModificar.TabIndex = 19;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -184,23 +178,12 @@
             label4.TabIndex = 12;
             label4.Text = "Proveedor:";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Century Schoolbook", 12F);
-            label5.Location = new Point(293, 47);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 20);
-            label5.TabIndex = 9;
-            label5.Text = "Fecha:";
-            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Century Schoolbook", 12F);
-            label6.Location = new Point(293, 117);
+            label6.Location = new Point(291, 90);
             label6.Name = "label6";
             label6.Size = new Size(98, 20);
             label6.TabIndex = 7;
@@ -232,7 +215,7 @@
             txtcostoU.BackColor = Color.Ivory;
             txtcostoU.BorderStyle = BorderStyle.FixedSingle;
             txtcostoU.Font = new Font("Calibri", 9.75F);
-            txtcostoU.Location = new Point(420, 86);
+            txtcostoU.Location = new Point(418, 59);
             txtcostoU.Name = "txtcostoU";
             txtcostoU.Size = new Size(60, 23);
             txtcostoU.TabIndex = 4;
@@ -242,7 +225,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Century Schoolbook", 12F);
-            label8.Location = new Point(293, 86);
+            label8.Location = new Point(291, 59);
             label8.Name = "label8";
             label8.Size = new Size(121, 20);
             label8.TabIndex = 3;
@@ -272,7 +255,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(dateTimeFecha);
             groupBox1.Controls.Add(txtdescripcion);
             groupBox1.Controls.Add(Eliminar);
             groupBox1.Controls.Add(btnModificar);
@@ -281,7 +263,6 @@
             groupBox1.Controls.Add(txtmarca);
             groupBox1.Controls.Add(txtproveedor);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtstock);
             groupBox1.Controls.Add(label7);
@@ -297,19 +278,11 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Productos";
             // 
-            // dateTimeFecha
-            // 
-            dateTimeFecha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimeFecha.Location = new Point(357, 46);
-            dateTimeFecha.Name = "dateTimeFecha";
-            dateTimeFecha.Size = new Size(169, 26);
-            dateTimeFecha.TabIndex = 23;
-            // 
             // txtdescripcion
             // 
             txtdescripcion.BackColor = Color.Ivory;
             txtdescripcion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtdescripcion.Location = new Point(293, 143);
+            txtdescripcion.Location = new Point(291, 116);
             txtdescripcion.Name = "txtdescripcion";
             txtdescripcion.Size = new Size(309, 26);
             txtdescripcion.TabIndex = 22;
@@ -354,7 +327,6 @@
         private TextBox txtmarca;
         private TextBox txtproveedor;
         private Label label4;
-        private Label label5;
         private Label label6;
         private TextBox txtstock;
         private Label label7;
@@ -363,15 +335,13 @@
         private TextBox txtproducto;
         private Label label9;
         private GroupBox groupBox1;
+        private TextBox txtdescripcion;
+        private Label lblFecha;
         private DataGridViewTextBoxColumn ColumnProducto;
         private DataGridViewTextBoxColumn ColumnProveedor;
         private DataGridViewTextBoxColumn ColumnMarca;
         private DataGridViewTextBoxColumn ColumnStock;
-        private DataGridViewTextBoxColumn ColumnFecha;
         private DataGridViewTextBoxColumn ColumnCosto;
         private DataGridViewTextBoxColumn ColumnDescripcion;
-        private TextBox txtdescripcion;
-        private Label lblFecha;
-        private DateTimePicker dateTimeFecha;
     }
 }
