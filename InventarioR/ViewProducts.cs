@@ -15,11 +15,6 @@ namespace Inventario
         public ViewProducts()
         {
             InitializeComponent();
-            dgvProductos.AllowUserToAddRows = false;
-        }
-        private void ViewProducts_Load(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Today.Date.ToString("d");
         }
 
         private void btncerrar_Click(object sender, EventArgs e)
@@ -34,60 +29,70 @@ namespace Inventario
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Verificar que todos los campos estén llenos
-            if (string.IsNullOrWhiteSpace(txtproducto.Text) ||
-                string.IsNullOrWhiteSpace(txtproveedor.Text) ||
-                string.IsNullOrWhiteSpace(txtmarca.Text) ||
-                string.IsNullOrWhiteSpace(txtstock.Text) ||
-                string.IsNullOrWhiteSpace(txtcostoU.Text) ||
-                string.IsNullOrWhiteSpace(txtdescripcion.Text))
+            string producto, proveedor, stock, marca, costoU, descripcion;
+
+            producto = txtproducto.Text;
+            proveedor = txtproveedor.Text;
+            stock = txtstock.Text;
+            marca = txtmarca.Text;
+            costoU = txtcostoU.Text;
+            descripcion = txtdescripcion.Text;
+
+            // Validar campos vacíos
+            if (string.IsNullOrWhiteSpace(producto) ||
+                string.IsNullOrWhiteSpace(proveedor) ||
+                string.IsNullOrWhiteSpace(stock) ||
+                string.IsNullOrWhiteSpace(marca) ||
+                string.IsNullOrWhiteSpace(costoU) ||
+                string.IsNullOrWhiteSpace(descripcion))
             {
-                MessageBox.Show("Rellenar todos los campos");
+                MessageBox.Show("Todos los campos deben estar llenos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Verificar que el campo 'Stock' sea un número entero
-            if (!int.TryParse(txtstock.Text, out int stock))
+            // Validar que stock y costoU sean números
+            if (!int.TryParse(stock, out _) || !decimal.TryParse(costoU, out _))
             {
-                MessageBox.Show("El campo 'Stock' debe ser un número entero.");
+                MessageBox.Show("Los campos 'Stock' y 'Costo Unitario' deben ser números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Verificar que el campo 'Costo Unitario' sea un número decimal
-            if (!decimal.TryParse(txtcostoU.Text, out decimal costoU))
-            {
-                MessageBox.Show("El campo 'Costo Unitario' debe ser un número decimal.");
-                return;
-            }
 
-            // Agregar los valores al DataGridView
-            dgvProductos.Rows.Add(txtproducto.Text, txtproveedor.Text, txtmarca.Text, stock, costoU, txtdescripcion.Text);
+            dgvProductos.Rows.Add(producto, proveedor, stock, marca, costoU, descripcion);
 
-            // Limpiar los campos después de agregar
-            limpiarDatos();
+            txtproducto.Text = "";
+            txtproveedor.Text = "";
+            txtmarca.Text = "";
+            txtstock.Text = "";
+            txtcostoU.Text = "";
+            txtdescripcion.Text = "";
+
         }
 
-        private void limpiarDatos()
-        {
-            txtproducto.Clear();
-            txtproveedor.Clear();
-            txtmarca.Clear();
-            txtstock.Clear();
-            txtcostoU.Clear();
-            txtdescripcion.Clear();
-        }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+
+        }
+
+        private void ViewProducts_Load(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Today.Date.ToString("d");
+        }
+
+        private void dgvProductos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvProductos.Rows.Count)
             {
-                DataGridViewRow selectedRow = dgvProductos.Rows[e.RowIndex];
-                txtproducto.Text = selectedRow.Cells[0].Value.ToString();
-                txtproveedor.Text = selectedRow.Cells[1].Value.ToString();
-                txtmarca.Text = selectedRow.Cells[2].Value.ToString();
-                txtstock.Text = selectedRow.Cells[3].Value.ToString();
-                txtcostoU.Text = selectedRow.Cells[4].Value.ToString();
-                txtdescripcion.Text = selectedRow.Cells[5].Value.ToString();
+                DataGridViewRow filaseleccionada = dgvProductos.Rows[e.RowIndex];
+
+                txtproducto.Text = filaseleccionada.Cells[0].Value?.ToString();
+                txtproveedor.Text = filaseleccionada.Cells[1].Value?.ToString();
+                txtmarca.Text = filaseleccionada.Cells[2].Value?.ToString();
+                txtstock.Text = filaseleccionada.Cells[3].Value?.ToString();
+                txtcostoU.Text = filaseleccionada.Cells[4].Value?.ToString();
+                txtdescripcion.Text = filaseleccionada.Cells[5].Value?.ToString();
+
             }
         }
 
@@ -95,16 +100,43 @@ namespace Inventario
         {
             if (dgvProductos.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dgvProductos.SelectedRows[0];
 
-                selectedRow.Cells[0].Value = txtproducto.Text;
-                selectedRow.Cells[1].Value = txtproveedor.Text;
-                selectedRow.Cells[2].Value = txtmarca.Text;
-                selectedRow.Cells[3].Value = txtstock.Text;
-                selectedRow.Cells[4].Value = txtcostoU.Text;
-                selectedRow.Cells[5].Value = txtdescripcion.Text;
+                string producto = txtproducto.Text;
+                string proveedor = txtproveedor.Text;
+                string stock = txtstock.Text;
+                string marca = txtmarca.Text;
+                string costoU = txtcostoU.Text;
+                string descripcion = txtdescripcion.Text;
 
-                limpiarDatos();
+                // Validar campos vacíos
+                if (string.IsNullOrWhiteSpace(producto) ||
+                    string.IsNullOrWhiteSpace(proveedor) ||
+                    string.IsNullOrWhiteSpace(stock) ||
+                    string.IsNullOrWhiteSpace(marca) ||
+                    string.IsNullOrWhiteSpace(costoU) ||
+                    string.IsNullOrWhiteSpace(descripcion))
+                {
+                    MessageBox.Show("Todos los campos deben estar llenos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Validar que stock y costoU sean números
+                if (!int.TryParse(stock, out _) || !decimal.TryParse(costoU, out _))
+                {
+                    MessageBox.Show("Los campos 'Stock' y 'Costo Unitario' deben ser números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DataGridViewRow filaseleccionada = dgvProductos.SelectedRows[0];
+
+                filaseleccionada.Cells[0].Value = txtproducto.Text;
+                filaseleccionada.Cells[1].Value = txtproveedor.Text;
+                filaseleccionada.Cells[2].Value = txtmarca.Text;
+                filaseleccionada.Cells[3].Value = txtstock.Text;
+                filaseleccionada.Cells[4].Value = txtcostoU.Text;
+                filaseleccionada.Cells[5].Value = txtdescripcion.Text;
+
+                dgvProductos.Refresh();
             }
         }
 
@@ -112,9 +144,24 @@ namespace Inventario
         {
             if (dgvProductos.SelectedRows.Count > 0)
             {
-                dgvProductos.Rows.RemoveAt(dgvProductos.SelectedRows[0].Index);
-                limpiarDatos();
+                DataGridViewRow fila = dgvProductos.SelectedRows[0];
+                dgvProductos.Rows.Remove(fila);
             }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una fila antes de eliminar");
+            }
+
+            txtproducto.Text = "";
+            txtproveedor.Text = "";
+            txtmarca.Text = "";
+            txtstock.Text = "";
+            txtcostoU.Text = "";
+            txtdescripcion.Text = "";
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
         }
     }
 }
