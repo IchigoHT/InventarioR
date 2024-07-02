@@ -61,7 +61,7 @@
             dgvProductos.BackgroundColor = Color.Silver;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ColumnProducto, ColumnProveedor, ColumnMarca, ColumnStock, ColumnCosto, ColumnDescripcion });
-            dgvProductos.Location = new Point(22, 266);
+            dgvProductos.Location = new Point(22, 224);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.Size = new Size(644, 254);
             dgvProductos.TabIndex = 20;
@@ -109,6 +109,7 @@
             Eliminar.TabIndex = 20;
             Eliminar.Text = "Eliminar";
             Eliminar.UseVisualStyleBackColor = false;
+            Eliminar.Click += Eliminar_Click;
             // 
             // btnModificar
             // 
@@ -273,7 +274,7 @@
             groupBox1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(22, 35);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(744, 210);
+            groupBox1.Size = new Size(744, 183);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Productos";
@@ -304,7 +305,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = InventarioR.Properties.Resources.bground;
-            ClientSize = new Size(780, 532);
+            ClientSize = new Size(780, 491);
             Controls.Add(dgvProductos);
             Controls.Add(lblFecha);
             Controls.Add(groupBox1);

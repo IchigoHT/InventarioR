@@ -38,6 +38,26 @@ namespace Inventario
             costoU = txtcostoU.Text;
             descripcion = txtdescripcion.Text;
 
+            // Validar campos vacíos
+            if (string.IsNullOrWhiteSpace(producto) ||
+                string.IsNullOrWhiteSpace(proveedor) ||
+                string.IsNullOrWhiteSpace(stock) ||
+                string.IsNullOrWhiteSpace(marca) ||
+                string.IsNullOrWhiteSpace(costoU) ||
+                string.IsNullOrWhiteSpace(descripcion))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validar que stock y costoU sean números
+            if (!int.TryParse(stock, out _) || !decimal.TryParse(costoU, out _))
+            {
+                MessageBox.Show("Los campos 'Stock' y 'Costo Unitario' deben ser números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             dgvProductos.Rows.Add(producto, proveedor, stock, marca, costoU, descripcion);
 
             txtproducto.Text = "";
@@ -49,16 +69,6 @@ namespace Inventario
 
         }
 
-        void limpiarDatos()
-        {
-            txtproducto.Text = "";
-            txtproveedor.Text = "";
-            txtmarca.Text = "";
-            txtstock.Text = "";
-            txtcostoU.Text = "";
-            txtdescripcion.Text = "";
-
-        }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -90,6 +100,33 @@ namespace Inventario
         {
             if (dgvProductos.SelectedRows.Count > 0)
             {
+
+                string producto = txtproducto.Text;
+                string proveedor = txtproveedor.Text;
+                string stock = txtstock.Text;
+                string marca = txtmarca.Text;
+                string costoU = txtcostoU.Text;
+                string descripcion = txtdescripcion.Text;
+
+                // Validar campos vacíos
+                if (string.IsNullOrWhiteSpace(producto) ||
+                    string.IsNullOrWhiteSpace(proveedor) ||
+                    string.IsNullOrWhiteSpace(stock) ||
+                    string.IsNullOrWhiteSpace(marca) ||
+                    string.IsNullOrWhiteSpace(costoU) ||
+                    string.IsNullOrWhiteSpace(descripcion))
+                {
+                    MessageBox.Show("Todos los campos deben estar llenos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Validar que stock y costoU sean números
+                if (!int.TryParse(stock, out _) || !decimal.TryParse(costoU, out _))
+                {
+                    MessageBox.Show("Los campos 'Stock' y 'Costo Unitario' deben ser números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 DataGridViewRow filaseleccionada = dgvProductos.SelectedRows[0];
 
                 filaseleccionada.Cells[0].Value = txtproducto.Text;
@@ -101,6 +138,30 @@ namespace Inventario
 
                 dgvProductos.Refresh();
             }
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow fila = dgvProductos.SelectedRows[0];
+                dgvProductos.Rows.Remove(fila);
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una fila antes de eliminar");
+            }
+
+            txtproducto.Text = "";
+            txtproveedor.Text = "";
+            txtmarca.Text = "";
+            txtstock.Text = "";
+            txtcostoU.Text = "";
+            txtdescripcion.Text = "";
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
         }
     }
 }
