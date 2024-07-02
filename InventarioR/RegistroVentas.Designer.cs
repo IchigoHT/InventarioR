@@ -54,6 +54,8 @@
             columnHeader8 = new ColumnHeader();
             btnSalir = new Button();
             lblFecha = new Label();
+            btnBorrar = new Button();
+            btnLimpiar = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -204,10 +206,10 @@
             // 
             btnCancelar.BackColor = Color.Navy;
             btnCancelar.ForeColor = SystemColors.ControlLightLight;
-            btnCancelar.Location = new Point(318, 265);
+            btnCancelar.Location = new Point(157, 266);
             btnCancelar.Margin = new Padding(5, 3, 5, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(126, 38);
+            btnCancelar.Size = new Size(101, 38);
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -217,10 +219,10 @@
             // 
             btnRegistrar.BackColor = Color.Navy;
             btnRegistrar.ForeColor = SystemColors.ControlLightLight;
-            btnRegistrar.Location = new Point(454, 266);
+            btnRegistrar.Location = new Point(273, 266);
             btnRegistrar.Margin = new Padding(5, 3, 5, 3);
             btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(115, 36);
+            btnRegistrar.Size = new Size(96, 38);
             btnRegistrar.TabIndex = 15;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = false;
@@ -283,7 +285,7 @@
             // 
             btnSalir.BackColor = Color.Navy;
             btnSalir.ForeColor = SystemColors.ControlLightLight;
-            btnSalir.Location = new Point(573, 459);
+            btnSalir.Location = new Point(599, 468);
             btnSalir.Margin = new Padding(5, 3, 5, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(124, 36);
@@ -303,6 +305,30 @@
             lblFecha.TabIndex = 18;
             lblFecha.Text = "lblFecha";
             // 
+            // btnBorrar
+            // 
+            btnBorrar.BackColor = Color.Navy;
+            btnBorrar.ForeColor = SystemColors.ControlLightLight;
+            btnBorrar.Location = new Point(497, 266);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(109, 37);
+            btnBorrar.TabIndex = 19;
+            btnBorrar.Text = "Borrar";
+            btnBorrar.UseVisualStyleBackColor = false;
+            btnBorrar.Click += btnBorrar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = Color.Navy;
+            btnLimpiar.ForeColor = SystemColors.ControlLightLight;
+            btnLimpiar.Location = new Point(612, 268);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(95, 35);
+            btnLimpiar.TabIndex = 20;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // RegistroVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 13F);
@@ -310,6 +336,8 @@
             BackColor = Color.FromArgb(255, 255, 128);
             BackgroundImage = InventarioR.Properties.Resources.bground;
             ClientSize = new Size(848, 507);
+            Controls.Add(btnLimpiar);
+            Controls.Add(btnBorrar);
             Controls.Add(lblFecha);
             Controls.Add(btnSalir);
             Controls.Add(lvVenta);
@@ -358,6 +386,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private Button btnBorrar;
+        private Button btnLimpiar;
     }
 }
 
